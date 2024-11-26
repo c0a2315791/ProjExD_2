@@ -56,8 +56,7 @@ def gameover(screen: pg.Surface) -> None:
     pg.display.update()
     time.sleep(5)
     return
-    
-
+        
 
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
@@ -66,8 +65,8 @@ def main():
     kk_img = pg.transform.rotozoom(pg.image.load("fig/3.png"), 0, 0.9)
     kk_rct = kk_img.get_rect()
     kk_rct.center = 300, 200
-    bb_img = pg.Surface((20, 20)) #爆弾用の空Surface
-    pg.draw.circle(bb_img, (255, 0, 0), (10, 10), 10) #爆弾円を描く
+    bb_img = pg.Surface((20, 20)) # 爆弾用の空Surface
+    pg.draw.circle(bb_img, (255, 0, 0), (10, 10), 10) # 爆弾円を描く
     bb_img.set_colorkey((0, 0, 0))
     bb_rct = bb_img.get_rect()
     bb_rct.center = random.randint(0, WIDTH), random.randint(0, HEIGHT)
