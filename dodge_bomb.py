@@ -30,16 +30,24 @@ def check_bound(rct:pg.Rect) -> tuple[bool, bool]:
 
 
 def gameover(screen: pg.Surface) -> None:
+    """
+    ゲームオーバー画面を表示させ、5秒止める
+    引数：画面Surface
+    戻り値：なし
+    """
     black_out = pg.Surface((WIDTH, HEIGHT))
-    pg.draw.rect(black_out, (0, 0, 0), pg.Rect(0, 0,WIDTH, HEIGHT))
+    pg.draw.rect(black_out, (0, 0, 0), pg.Rect(0, 0, WIDTH, HEIGHT))
     black_out.set_alpha(50)
+
     font_go = pg.font.Font(None, 80)
     txt_go = font_go.render("Game Over", True, (255, 255, 255))
     txt_go_rct = txt_go.get_rect()
     txt_go_rct.center = WIDTH/2, HEIGHT/2
+
     cry_ktn_img = pg.transform.rotozoom(pg.image.load("fig/8.png"), 0, 0.9)
     cry_ktn_img_rct = cry_ktn_img.get_rect()
     cry_ktn_img_rct.center = WIDTH/2-40*len("Game Over")/2, HEIGHT/2
+
     screen.blit(black_out, [0, 0])
     screen.blit(txt_go, txt_go_rct)
     screen.blit(cry_ktn_img, cry_ktn_img_rct)
