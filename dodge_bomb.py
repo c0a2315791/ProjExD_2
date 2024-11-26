@@ -59,10 +59,13 @@ def main():
         if check_bound(kk_rct) != (True, True):
             kk_rct.move_ip(-sum_mv[0], -sum_mv[1])
         bb_rct.move_ip(vx, vy)
+        #爆弾を画面内にとどめる
         if check_bound(bb_rct) == (True, False):
             vy *= -1
         if check_bound(bb_rct) == (False, True):
             vx *= -1
+        if bb_rct.colliderect(kk_rct):
+            return
 
         screen.blit(kk_img, kk_rct)
         screen.blit(bb_img, bb_rct)
